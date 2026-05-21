@@ -1,0 +1,72 @@
+import 'package:geolocator/geolocator.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:geocoding/geocoding.dart';
+
+class LocationService {
+  static Future<String> getCurrentCity() async {
+    // 1. Kiểm tra quyền (Sử dụng permission_handler như bạn đã viết)
+    final permission = await Permission.location.request();
+    if (!permission.isGranted) return 'Hanoi';
+    
+    // 2. Kiểm tra dịch vụ vị trí (GPS đã bật chưa)
+    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) return 'Hanoi';
+    
+    try {
+      // 3. Lấy vị trí hiện tại
+      final position = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.high,
+        ),
+      );
+      
+      final placemarks = await placemarkFromCoordinates(
+        position.latitude, 
+        position.longitude
+      );
+      
+      if (placemarks.isNotEmpty) {
+        final place = placemarks.first;
+        
+        // Lấy tên thành phố/tỉnh
+        // administrativeArea thường trả về tên Tỉnh/Thành phố (ví dụ: Thành phố Hồ Chí Minh)
+        // subAdministrativeArea hoặc locality có thể là Quận/Huyện
+        final cityName = place.administrativeArea ?? place.locality ?? '';
+        
+        return _mapCityCode(cityName);
+      }
+    } catch (e) {
+      print('Location error: $e');
+    }
+    
+    return 'Hanoi';
+  }
+  
+  static String _mapCityCode(String cityName) {
+    if (cityName.isEmpty) return 'Hanoi';
+    
+    final lowerName = cityName.toLowerCase();
+    
+    // Sử dụng contains để bắt các chuỗi như "Thành phố Hà Nội" hoặc "Hanoi City"
+    if (lowerName.contains('hà nội') || lowerName.contains('hanoi')) {
+      return 'Hanoi';
+    }
+    if (lowerName.contains('hồ chí minh') || lowerName.contains('chi minh') || lowerName.contains('hcm')) {
+      return 'HCMC';
+    }
+    if (lowerName.contains('đà nẵng') || lowerName.contains('da nang')) {
+      return 'Danang';
+    }
+    
+    return 'Hanoi'; 
+  }
+  
+  static String getCityDisplayName(String cityCode) {
+    switch (cityCode) {
+      case 'Hanoi': return 'Hà Nội';
+      case 'HCMC': return 'TP. Hồ Chí Minh';
+      case 'Danang': return 'Đà Nẵng';
+      default: return cityCode;
+    }
+  }
+}
