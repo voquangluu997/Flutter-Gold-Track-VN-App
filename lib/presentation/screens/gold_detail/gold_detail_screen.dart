@@ -120,7 +120,7 @@ class GoldDetailScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.05),
+            color: Theme.of(context).shadowColor.withValues(alpha: 0.05),
             blurRadius: 10,
           ),
         ],

@@ -106,7 +106,7 @@ class _SettingsItemState extends State<SettingsItem> {
             });
             widget.onTap?.call();
           },
-          activeColor: isEthereal ? AppColors.lavender : Theme.of(context).primaryColor,
+          activeThumbColor: isEthereal ? AppColors.lavender : Theme.of(context).primaryColor,
         );
       case SettingsItemType.navigation:
         return Icon(Icons.chevron_right, color: isEthereal ? AppColors.etherealTextHint : Colors.grey);

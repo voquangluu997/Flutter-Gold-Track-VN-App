@@ -34,7 +34,7 @@ class GoldTheme {
     cardTheme: CardThemeData(
       elevation: 4,
       color: AppColors.goldSurface,
-      shadowColor: AppColors.goldLight.withOpacity(0.3),
+      shadowColor: AppColors.goldLight.withValues(alpha: 0.3),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(24),
       ),
@@ -54,7 +54,7 @@ class GoldTheme {
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: AppColors.goldMain,
-        side: BorderSide(color: AppColors.goldMain, width: 1.5),
+        side: const BorderSide(color: AppColors.goldMain, width: 1.5),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
         ),
@@ -62,7 +62,7 @@ class GoldTheme {
     ),
     
     chipTheme: ChipThemeData(
-      backgroundColor: AppColors.goldLight.withOpacity(0.15),
+      backgroundColor: AppColors.goldLight.withValues(alpha: 0.15),
       labelStyle: AppTypography.bodySmall,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),

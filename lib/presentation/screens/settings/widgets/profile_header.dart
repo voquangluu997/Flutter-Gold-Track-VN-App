@@ -14,7 +14,7 @@ class ProfileHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.05),
+            color: Theme.of(context).shadowColor.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -31,7 +31,7 @@ class ProfileHeader extends StatelessWidget {
               borderRadius: BorderRadius.circular(35),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.goldLight.withOpacity(0.3),
+                  color: AppColors.goldLight.withValues(alpha: 0.3),
                   blurRadius: 8,
                 ),
               ],

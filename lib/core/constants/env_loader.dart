@@ -22,35 +22,40 @@ class EnvLoader {
       ''');
     }
   }
-  
 
-  static String get apiBaseUrl {
-    final env = dotenv.get('APP_ENV', fallback: 'dev');
-    if (env == 'prod') {
-      return dotenv.get('API_BASE_URL_PROD');
-    }
-    return dotenv.get('API_BASE_URL_DEV');
+  static String _getString(String key, {String fallback = ''}) {
+    return dotenv.get(key, fallback: fallback).trim();
   }
 
-  static String get appName => dotenv.get('APP_NAME', fallback: 'GoldTrack');
-  
-  static String get appVersion => dotenv.get('APP_VERSION', fallback: '1.0.0');
-  
-  static int get connectTimeout => 
-      int.tryParse(dotenv.get('API_CONNECT_TIMEOUT', fallback: '30')) ?? 30;
-  
-  static int get receiveTimeout => 
-      int.tryParse(dotenv.get('API_RECEIVE_TIMEOUT', fallback: '30')) ?? 30;
-  
-  static bool get enableLocationServices => 
-      dotenv.get('ENABLE_LOCATION_SERVICES', fallback: 'true').toLowerCase() == 'true';
-  
-  static bool get enablePushNotifications => 
-      dotenv.get('ENABLE_PUSH_NOTIFICATIONS', fallback: 'true').toLowerCase() == 'true';
-  
-  static bool get isProduction => 
-      dotenv.get('APP_ENV', fallback: 'dev') == 'prod';
-  
-  static bool get isDevelopment => 
-      dotenv.get('APP_ENV', fallback: 'dev') == 'dev';
+  static String get apiBaseUrl {
+    final env = _getString('APP_ENV', fallback: 'dev');
+    if (env == 'prod') {
+      return _getString('API_BASE_URL_PROD');
+    }
+    return _getString('API_BASE_URL_DEV');
+  }
+
+  static String get appName => _getString('APP_NAME', fallback: 'GoldTrack');
+
+  static String get appVersion => _getString('APP_VERSION', fallback: '1.0.0');
+
+  static int get connectTimeout =>
+      int.tryParse(_getString('API_CONNECT_TIMEOUT', fallback: '30')) ?? 30;
+
+  static int get receiveTimeout =>
+      int.tryParse(_getString('API_RECEIVE_TIMEOUT', fallback: '30')) ?? 30;
+
+  static bool get enableLocationServices =>
+      _getString('ENABLE_LOCATION_SERVICES', fallback: 'true').toLowerCase() ==
+      'true';
+
+  static bool get enablePushNotifications =>
+      _getString('ENABLE_PUSH_NOTIFICATIONS', fallback: 'true').toLowerCase() ==
+      'true';
+
+  static bool get isProduction =>
+      _getString('APP_ENV', fallback: 'dev') == 'prod';
+
+  static bool get isDevelopment =>
+      _getString('APP_ENV', fallback: 'dev') == 'dev';
 }

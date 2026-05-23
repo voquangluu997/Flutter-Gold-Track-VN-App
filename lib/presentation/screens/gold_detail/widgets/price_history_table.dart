@@ -127,7 +127,7 @@ class _PriceHistoryTableState extends State<PriceHistoryTable> {
                       ],
                     ),
                   );
-                }).toList(),
+                }),
               ],
             ),
           ),

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
+import 'core/constants/env_loader.dart';
 import 'core/theme/theme_provider.dart';
 import 'presentation/screens/home/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  await dotenv.load();
-  
+
+  await EnvLoader.load();
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),

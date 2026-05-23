@@ -42,7 +42,7 @@ class SettingsScreen extends StatelessWidget {
             const SizedBox(height: 24),
             
             // Cài đặt thông báo
-            SettingsGroup(
+            const SettingsGroup(
               title: 'Thông báo',
               icon: Icons.notifications_active,
               children: [
@@ -69,7 +69,7 @@ class SettingsScreen extends StatelessWidget {
             const SizedBox(height: 16),
             
             // Cài đặt hiển thị
-            SettingsGroup(
+            const SettingsGroup(
               title: 'Hiển thị',
               icon: Icons.palette,
               children: [
@@ -98,7 +98,7 @@ class SettingsScreen extends StatelessWidget {
             const SizedBox(height: 16),
             
             // Cài đặt vị trí
-            SettingsGroup(
+            const SettingsGroup(
               title: 'Vị trí',
               icon: Icons.location_on,
               children: [
@@ -131,7 +131,7 @@ class SettingsScreen extends StatelessWidget {
                   type: SettingsItemType.action,
                   onTap: () => _showClearCacheDialog(context),
                 ),
-                SettingsItem(
+                const SettingsItem(
                   title: 'Phiên bản',
                   subtitle: '1.0.0 (26)',
                   type: SettingsItemType.info,

@@ -43,7 +43,7 @@ class LocationHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(32),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.05),
+            color: Theme.of(context).shadowColor.withValues(alpha: 0.05),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),
@@ -56,7 +56,7 @@ class LocationHeader extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: primaryColor.withOpacity(0.15),
+              color: primaryColor.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(24),
             ),
             child: Icon(
@@ -102,7 +102,7 @@ class LocationHeader extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: primaryColor.withOpacity(0.15),
+                color: primaryColor.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(

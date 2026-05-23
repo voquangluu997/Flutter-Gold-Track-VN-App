@@ -147,7 +147,7 @@ class _ChartCanvas extends StatelessWidget {
     }
 
     return CustomPaint(
-      size: Size(double.infinity, 250),
+      size: const Size(double.infinity, 250),
       painter: _ChartPainter(
         prices: prices,
         minPrice: minPrice,
@@ -173,7 +173,7 @@ class _ChartPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final primaryColor = AppColors.goldMain;
+    const primaryColor = AppColors.goldMain;
     
     final paint = Paint()
       ..color = primaryColor
@@ -182,7 +182,7 @@ class _ChartPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
 
     final fillPaint = Paint()
-      ..color = primaryColor.withOpacity(0.1)
+      ..color = primaryColor.withValues(alpha: 0.1)
       ..style = PaintingStyle.fill;
 
     final path = Path();

@@ -29,7 +29,7 @@ class GoldPriceCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(32),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).shadowColor.withOpacity(0.05),
+              color: Theme.of(context).shadowColor.withValues(alpha: 0.05),
               blurRadius: 20,
               offset: const Offset(0, 4),
             ),
@@ -57,7 +57,7 @@ class GoldPriceCard extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [
             primaryColor,
-            primaryColor.withOpacity(0.7),
+            primaryColor.withValues(alpha: 0.7),
           ],
         ),
         borderRadius: BorderRadius.circular(28),
@@ -105,7 +105,7 @@ class GoldPriceCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Column(

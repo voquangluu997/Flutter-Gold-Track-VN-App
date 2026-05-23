@@ -41,7 +41,7 @@ class LocationHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(32),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.05),
+            color: Theme.of(context).shadowColor.withValues(alpha: 0.05),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),
@@ -53,7 +53,7 @@ class LocationHeader extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: primaryColor.withOpacity(0.15),
+              color: primaryColor.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
                 color: Colors.transparent, // Border trong suốt để lộ gradient bên dưới
@@ -71,7 +71,7 @@ class LocationHeader extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(14),
                 ),
-            child: GradientIcon(Icons.location_on, size: 24),
+            child: const GradientIcon(Icons.location_on, size: 24),
 
               )),
             
@@ -88,7 +88,7 @@ class LocationHeader extends StatelessWidget {
                 ),
                 Text(
                   'Cập nhật: ${_formatDate(lastUpdated)}',
-                  style: AppTypography.caption.copyWith(color: AppColors.dark.withOpacity(0.8),
+                  style: AppTypography.caption.copyWith(color: AppColors.dark.withValues(alpha: 0.8),
                 )),
               ],
             ),

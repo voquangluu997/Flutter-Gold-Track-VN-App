@@ -97,7 +97,7 @@ class GoldPriceCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: color.withOpacity(0.3), width: 0.5)
+        border: Border.all(color: color.withValues(alpha: 0.3), width: 0.5)
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
